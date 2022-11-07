@@ -1,0 +1,14 @@
+from django.urls import path
+
+from api.{{ api_version }}.{{ app_name }}.views import (
+    {{ camel_case_app_name }}ListCreateView,
+    {{ camel_case_app_name }}DetailUpdateView,
+    {{ camel_case_app_name }}CountView,
+)
+
+urlpatterns = [
+    path('', {{ camel_case_app_name }}ListCreateView.as_view()),
+    path('<int:pk>/', {{ camel_case_app_name }}DetailUpdateView.as_view()),
+    path('count/', {{ camel_case_app_name }}CountView.as_view()),
+    # add etc action view
+]

@@ -1,0 +1,31 @@
+from rest_framework import serializers
+
+from app.{{ app_name }}.models import {{ camel_case_app_name }}
+
+
+class {{ camel_case_app_name }}ListCreateSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = {{ camel_case_app_name }}
+        fields = '__all__'
+
+    def validate(self, attrs):
+        return super().validate(attrs)
+
+    def create(self, validated_data):
+        return super().create(validated_data)
+
+
+class {{ camel_case_app_name }}DetailUpdateSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = {{ camel_case_app_name }}
+        fields = '__all__'
+
+    def validate(self, attrs):
+        return super().validate(attrs)
+
+    def create(self, validated_data):
+        return super().create(validated_data)
+
+
+class {{ camel_case_app_name }}CountSerializer(serializers.Serializer):
+    count = serializers.IntegerField()

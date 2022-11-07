@@ -1,0 +1,31 @@
+from rest_framework import generics
+
+from api.{{ api_version }}.{{ app_name }}.filters import {{ camel_case_app_name }}Filter
+from api.{{ api_version }}.{{ app_name }}.permissions import {{ camel_case_app_name }}Permission
+from api.{{ api_version }}.{{ app_name }}.serializers import (
+    {{ camel_case_app_name }}ListCreateSerializer,
+    {{ camel_case_app_name }}DetailUpdateSerializer,
+    {{ camel_case_app_name }}CountSerializer,
+)
+from app.{{ app_name }}.models import {{ camel_case_app_name }}
+
+
+class {{ camel_case_app_name }}ListCreateView(generics.ListCreateAPIView):
+    queryset = {{ camel_case_app_name }}.objects.all()
+    serializer_class = {{ camel_case_app_name }}ListCreateSerializer
+    permission_classes = [{{ camel_case_app_name }}Permission]
+    filterset_class = {{ camel_case_app_name }}Filter
+
+
+class {{ camel_case_app_name }}DetailUpdateView(generics.RetrieveUpdateAPIView):
+    queryset = {{ camel_case_app_name }}.objects.all()
+    serializer_class = {{ camel_case_app_name }}DetailUpdateSerializer
+    permission_classes = [{{ camel_case_app_name }}Permission]
+
+
+class {{ camel_case_app_name }}CountView(generics.RetrieveAPIView):
+    queryset = {{ camel_case_app_name }}.objects.all()
+    serializer_class = {{ camel_case_app_name }}CountSerializer
+
+    def get_object(self):
+        return {'count': self.queryset.count()}

@@ -1,0 +1,10 @@
+from django.db import models
+
+from app.common.models import BaseModel
+
+
+class {{ camel_case_app_name }}(BaseModel):
+    class Meta:
+        verbose_name = '{{ camel_case_app_name }}'
+        verbose_name_plural = verbose_name
+        ordering = ['-created']
