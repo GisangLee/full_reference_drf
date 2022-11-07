@@ -38,7 +38,6 @@ THIRD_PARTY_APPS = [
 
 PROJ_APPS = [
     "app.common.apps.CommonConfig",
-    "app.user.apps.UserConfig",
 ]
 
 MIDDLEWARE = [
